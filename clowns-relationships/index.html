@@ -279,6 +279,21 @@
     .prereq-or{padding:2px 0}
   }
 
+  /* ---------- priority ---------- */
+  .priority-badge{
+    display:inline-block;margin-left:8px;background:var(--red);color:var(--cream);
+    font-weight:800;letter-spacing:.1em;font-size:10px;text-transform:uppercase;
+    padding:3px 9px;border-radius:999px;vertical-align:middle;
+  }
+  .priority-note{
+    margin-top:20px;display:flex;gap:14px;align-items:flex-start;
+    background:var(--panel-2);border:1px solid rgba(245,193,59,.4);border-left:3px solid var(--yellow);
+    border-radius:14px;padding:18px 22px;
+  }
+  .priority-star{color:var(--yellow);font-size:22px;line-height:1.25;flex:none}
+  .priority-note p{color:var(--cream-dim);font-size:16px;line-height:1.5;margin:0}
+  .priority-note b{color:var(--cream)}
+
   @media (max-width:720px){
     body{font-size:16px}
     .module{grid-template-columns:1fr;gap:14px;padding:26px 22px}
@@ -482,7 +497,7 @@
     </div>
     <div class="price-grid">
       <div class="price feature">
-        <div class="plan">Full program · 5 modules</div>
+        <div class="plan">Full program · 5 modules <span class="priority-badge">Priority</span></div>
         <div class="amt">€1,000</div>
         <p class="note">The complete journey, best value.</p>
         <ul>
@@ -501,6 +516,11 @@
           <li>Remaining balance module by module</li>
         </ul>
       </div>
+    </div>
+
+    <div class="priority-note">
+      <span class="priority-star">★</span>
+      <p><b>Full-program participants come first.</b> Places are limited — those enrolled in the complete cycle have priority to take the available spots.</p>
     </div>
   </div>
 </section>
