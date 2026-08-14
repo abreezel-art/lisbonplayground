@@ -503,6 +503,61 @@
       gap: 18px;
     }
 
+    .pricing-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .price-card {
+      padding: 22px 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .price-card.early {
+      border-color: rgba(228,199,107,0.34);
+      background: rgba(228,199,107,0.06);
+    }
+
+    .price-label {
+      display: block;
+      margin-bottom: 12px;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .price-amount {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.4rem);
+      font-weight: 600;
+      font-style: italic;
+      line-height: 0.9;
+    }
+
+    .price-card p,
+    .pricing-note {
+      color: rgba(255,255,255,0.78);
+      line-height: 1.65;
+    }
+
+    .price-card p {
+      margin: 0;
+    }
+
+    .pricing-note {
+      margin: 18px 0 0;
+      padding-left: 14px;
+      border-left: 2px solid var(--gold);
+    }
+
     .review-card {
       padding: 0;
       background: rgba(255,255,255,0.03);
@@ -827,6 +882,7 @@
 
       .grid,
       .expect-grid,
+      .pricing-grid,
       .review-grid,
       .media-grid {
         grid-template-columns: 1fr;
@@ -887,7 +943,7 @@
         <section class="grid" aria-label="Key themes">
           <article class="card">
             <h3>Presence</h3>
-            <p>Notice how you are in the moment and act from it.</p>
+            <p>Learn to notice how you are in the moment and act from it.</p>
           </article>
           <article class="card">
             <h3>Play</h3>
@@ -1026,6 +1082,29 @@
           </div>
         </section>
 
+        <section class="section" id="pricing">
+          <div class="section-inner">
+            <p class="section-kicker">Workshop fee</p>
+            <h2>Choose your rate</h2>
+
+            <div class="pricing-grid">
+              <div class="price-card early">
+                <span class="price-label">Early bird</span>
+                <strong class="price-amount">€190</strong>
+                <p>Available until 15 September</p>
+              </div>
+
+              <div class="price-card">
+                <span class="price-label">Regular</span>
+                <strong class="price-amount">€220</strong>
+                <p>From 16 September</p>
+              </div>
+            </div>
+
+            <p class="pricing-note">Places are limited. Your booking is confirmed once payment has been received.</p>
+          </div>
+        </section>
+
         <section class="section" id="reviews">
           <div class="section-inner">
             <p class="section-kicker">Reviews</p>
@@ -1142,8 +1221,8 @@
         <div class="cta-wrap" id="reserve">
           <div class="cta-box" id="next-date">
             <div>
-              <span>Next date</span>
-              <strong>15–16 October</strong>
+              <span>Next date - October 15-16</span>
+              <strong>Reserve your spot</strong>
             </div>
             <a href="https://wa.me/351937990470" class="button-primary">Book via WhatsApp</a>
           </div>
