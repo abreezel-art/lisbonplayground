@@ -232,6 +232,15 @@
       font-weight: 500;
     }
 
+    .subtitle-note {
+      max-width: 640px;
+      margin: 10px 0 0;
+      font-size: clamp(0.95rem, 1.05vw, 1.2rem);
+      line-height: 1.45;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
     .name {
       margin-top: 18px;
       font-size: 0.9rem;
@@ -461,40 +470,262 @@
       line-height: 1.7;
     }
 
-    .bio-box {
-      margin-top: 24px;
-      padding: 20px 18px;
-      background: rgba(17, 12, 10, 0.2);
-      border: 1px solid rgba(255,255,255,0.09);
-    }
-
-    .bio-box p {
-      margin: 0;
-      color: rgba(255,255,255,0.8);
-      line-height: 1.8;
-    }
-
     .about-layout {
-      margin-top: 24px;
+      margin-top: 26px;
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 22px;
+      grid-template-columns: 1.13fr 0.8fr;
+      gap: 42px;
       align-items: stretch;
     }
 
-    .about-photo {
-      min-height: 320px;
-      border: 1px solid rgba(255,255,255,0.1);
-      overflow: hidden;
-      background: rgba(18, 13, 10, 0.24);
-      box-shadow: 0 20px 46px rgba(18, 12, 9, 0.12);
+    .bio-copy p {
+      margin: 0 0 16px;
+      max-width: 62ch;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+      line-height: 1.8;
     }
 
+    .bio-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .bio-copy em {
+      color: var(--ink);
+      font-style: italic;
+    }
+
+    .about-photo {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 4:3 sets the natural height; when the text column runs taller the
+       picture grows to meet it and cover() takes more off the empty left
+       side of the frame rather than distorting anything. */
     .about-photo img {
       width: 100%;
-      height: 100%;
+      aspect-ratio: 4 / 3;
+      flex: 1 1 auto;
+      min-height: 0;
       object-fit: cover;
+      object-position: 60% top;
       filter: saturate(0.9) contrast(1.06) brightness(0.9);
+    }
+
+    .about-photo figcaption {
+      margin-top: 12px;
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .bio-copy .bio-pull {
+      margin: 34px 0 0;
+      max-width: 22ch;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+      line-height: 1.18;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .bio-pull span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .bio-teaching {
+      margin-top: 52px;
+      border-top: 1px solid var(--line);
+      padding-top: 30px;
+    }
+
+    .bio-principles {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 32px;
+    }
+
+    .bio-principle .rule {
+      width: 30px;
+      height: 2px;
+      margin-bottom: 16px;
+      background: var(--gold);
+    }
+
+    .bio-principle h3 {
+      margin: 0 0 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      line-height: 1.2;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .bio-principle p {
+      margin: 0;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+
+    .bio-creds {
+      margin: 44px 0 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      max-width: 90ch;
+      font-size: 0.86rem;
+      font-style: italic;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .section h2.practical-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(32px, 4.4vw, 50px);
+      line-height: 1.08;
+      letter-spacing: -0.012em;
+      color: var(--ink);
+    }
+
+    .practical__grid {
+      margin: 26px 0 0;
+      max-width: 1080px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 34px 44px;          /* row-gap column-gap */
+      align-items: start;      /* items top-align; ragged bottoms are correct */
+    }
+
+    .practical__item {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .practical__item dd {
+      margin: 0;
+    }
+
+    .practical__label {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .practical__value {
+      font-size: 16.5px;
+      font-weight: 500;
+      line-height: 1.5;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink);
+    }
+
+    .practical__note {
+      font-size: 13.5px;
+      font-weight: 400;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .practical__value a {
+      border-bottom: 1px solid var(--gold-deep);
+      padding-bottom: 1px;
+    }
+
+    .practical__value a:hover {
+      color: var(--gold);
+    }
+
+    .practical__value a:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-bottom-color: transparent;
+    }
+
+    @media (max-width: 860px) {
+      .practical__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 36px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .practical__grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    .faq {
+      width: min(780px, 100%);
+      margin: 66px 0 0;
+    }
+
+    .faq h3 {
+      margin: 0 0 14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 2.6vw, 2.6rem);
+      line-height: 1.1;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .faq details {
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .faq details:last-child {
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .faq summary {
+      position: relative;
+      list-style: none;
+      cursor: pointer;
+      padding: 17px 38px 17px 0;
+      font-size: 1.02rem;
+      line-height: 1.45;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq summary::after {
+      content: "+";
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--gold);
+    }
+
+    .faq details[open] summary::after {
+      content: "−";
+    }
+
+    .faq summary:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    .faq-answer {
+      margin: 0 0 20px;
+      padding-right: 38px;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.8);
     }
 
     .review-grid {
@@ -810,6 +1041,74 @@
       text-align: left;
     }
 
+    .about-inner {
+      padding-top: 34px;
+      padding-bottom: 34px;
+    }
+
+    .about-statement {
+      margin: 26px 0 0;
+      max-width: 1000px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.5rem);
+      line-height: 1.22;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .about-columns {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px 48px;
+      align-items: start;
+    }
+
+    .about-columns p {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .about-column-stack {
+      display: grid;
+      gap: 20px;
+    }
+
+    .about-play {
+      margin-top: 42px;
+    }
+
+    .about-play-statement {
+      margin: 0;
+      max-width: 900px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 2.2vw, 2.25rem);
+      line-height: 1.25;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .about-play-copy {
+      margin: 18px 0 0;
+      max-width: 640px;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .about-format {
+      margin: 40px 0 0;
+      padding-top: 26px;
+      max-width: 820px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.74);
+    }
+
     @media (max-width: 980px) {
       .hero {
         grid-template-columns: 1fr;
@@ -840,11 +1139,35 @@
 
       .about-layout {
         grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .faq {
+        margin-top: 52px;
+      }
+
+      .about-photo img {
+        aspect-ratio: 3 / 2;
+      }
+
+      .bio-copy .bio-pull {
+        margin-top: 30px;
+        max-width: none;
+      }
+
+      .bio-principles {
+        grid-template-columns: 1fr;
+        gap: 26px;
       }
 
       .why-workshop-columns {
         grid-template-columns: 1fr;
         gap: 18px;
+      }
+
+      .about-columns {
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
 
       .why-workshop {
@@ -908,6 +1231,15 @@
         grid-row: auto;
       }
 
+      .faq-answer {
+        padding-right: 0;
+      }
+
+      .about-photo img {
+        aspect-ratio: 4 / 3;
+        object-position: 62% top;
+      }
+
       .why-workshop-columns {
         margin-top: 22px;
       }
@@ -941,7 +1273,8 @@
           <div class="hero-copy">
             <p class="eyebrow">Two days with Pedro Fabião</p>
             <h1>Being <span class="highlight">Before</span> Doing</h1>
-            <p class="subtitle">An experiential workshop exploring presence, authenticity and human connection through the art of clowning.</p>
+            <p class="subtitle">A workshop on presence, authenticity and human connection, through the art of clowning.</p>
+            <p class="subtitle-note">* A version of personal work fuelled by pure fun and aliveness.</p>
 
             <div class="cta-row">
               <a href="#reserve" class="button-primary">Reserve your spot</a>
@@ -966,11 +1299,11 @@
         <section class="why-workshop" id="why-this-workshop">
           <div class="why-workshop-content">
             <p class="section-kicker">Why this workshop</p>
-            <h2>Do you ever feel like you're trying too hard to get things right?</h2>
+            <h2>Getting it right is exhausting.</h2>
 
             <div class="why-workshop-columns">
-              <p>Many of us become very good at thinking, planning and measuring ourselves. We worry about how we're perceived, hold back our impulses and keep difficult feelings private.</p>
-              <p>We try to stay in control — to be good, correct or easy to be with. In doing so, we can lose touch with our bodies, our spontaneity and the parts of us that feel most alive. We become afraid of mistakes and find it harder to play, trust what is happening and truly meet another person.</p>
+              <p>Many of us get very good at thinking, planning and managing ourselves. We check how we're coming across. We swallow the impulse before it reaches the room. We keep the difficult feelings private. It works. You stay in control, you stay good, correct, easy to be around.</p>
+              <p>But something quietly gets filed away with it - we lose touch with our bodies, our spontaneity and the parts of us that feel most alive. Mistakes start to feel expensive. Playing gets harder. And meeting another person - really meeting them - starts to feel like something you once knew how to do.</p>
             </div>
 
             <p class="why-workshop-closing">Being Before Doing is an invitation to experience something different.</p>
@@ -993,21 +1326,26 @@
         </section>
 
         <section class="section" id="about">
-          <div class="section-inner">
+          <div class="section-inner about-inner">
             <p class="section-kicker">About the workshop</p>
-            <h2>What is Being Before Doing?</h2>
-            <p class="section-copy">
-              <strong>Being Before Doing is an invitation to stop performing and start being.</strong>
-            </p>
-            <p class="section-copy">
-              Based on the art of clowning, this workshop explores what happens when we stop trying to be interesting, funny or successful - and begin responding honestly to what is happening in the present moment.
-            </p>
-            <p class="section-copy">
-              Through simple games and guided exercises, you’ll reconnect with your body, emotions and intuition, discovering a more authentic and spontaneous way of relating to yourself, others and the audience.
-            </p>
-            <p class="section-copy">
-              The clown is not a character you create. It’s simply <strong>you, amplified</strong>.
-            </p>
+            <h2>What Is Being Before Doing?</h2>
+
+            <p class="about-statement">The underlying idea of the workshop is simple: the clown in you is you amplified.</p>
+
+            <div class="about-columns">
+              <p>Whatever your idea about clowning is, be ready to be surprised. It isn't a red nose and a funny walk or a silly voice. It's closer to the opposite: taking things off, until what's left is yours - your impulses, reactions, emotions, rhythms, hesitations, mistakes and the particular way you meet the world.</p>
+              <div class="about-column-stack">
+                <p>The exercises are designed to notice these qualities and give them more space. The aim is not to make you into someone else, but to make your own way of being more visible, expressive and alive.</p>
+                <p>What it's really about is connection, with yourself and from that place - with the people in the room.</p>
+              </div>
+            </div>
+
+            <div class="about-play">
+              <p class="about-play-statement">The secret ingredient is the state of play.</p>
+              <p class="about-play-copy">Play softens our natural defences. It brings more pleasure, spontaneity, curiosity and openness to what we do not yet know - in ourselves, in the moment and in other people.</p>
+            </div>
+
+            <p class="about-format">We explore this through games and guided exercises using movement, breath, voice, eye contact and improvisation - alone, with partners and with the whole group.</p>
           </div>
         </section>
 
@@ -1102,71 +1440,6 @@
           </div>
         </section>
 
-        <section class="section" id="pricing">
-          <div class="section-inner">
-            <p class="section-kicker">Workshop fee</p>
-            <h2>Choose your rate</h2>
-
-            <div class="pricing-grid">
-              <div class="price-card early">
-                <span class="price-label">Early bird</span>
-                <strong class="price-amount">€190</strong>
-                <p>Available until 15 September</p>
-              </div>
-
-              <div class="price-card">
-                <span class="price-label">Regular</span>
-                <strong class="price-amount">€220</strong>
-                <p>From 16 September</p>
-              </div>
-            </div>
-
-            <p class="pricing-note">Places are limited. Your booking is confirmed once payment has been received.</p>
-          </div>
-        </section>
-
-        <section class="section" id="reviews">
-          <div class="section-inner">
-            <p class="section-kicker">Reviews</p>
-            <h2>People leave changed, lighter, more awake</h2>
-
-            <div class="review-grid">
-              <details class="review-card">
-                <summary>
-                  <strong>From Dasha</strong>
-                  <p class="review-preview">“It wasn’t about being funny. It was about letting go of control and discovering what is real, raw and alive inside.”</p>
-                  <p class="review-preview more">Read more</p>
-                </summary>
-                <div class="review-full">
-                  <p>“I went in with a strong fear of being seen and feeling awkward. I expected a performance exercise. Instead, I discovered something much deeper: there are moments when surrendering control creates honesty, brightness and a huge emotional release. The workshop helped me understand that my energy was being spent on trying to appear more polished, not on being fully alive. By the end, I felt as if old blocks had been cleared, and I understood that my real power is not in being careful — it is in allowing myself to be present, messy, expressive and honest.”</p>
-                </div>
-              </details>
-
-              <details class="review-card">
-                <summary>
-                  <strong>From Sasha</strong>
-                  <p class="review-preview">“For me it became a deep reset: warm, playful, emotional, and surprisingly transformative.”</p>
-                  <p class="review-preview more">Read more</p>
-                </summary>
-                <div class="review-full">
-                  <p>“The workshop was a rare combination of ease and intensity. It gave me permission to feel more authentic and less guarded. The atmosphere was so warm and open that I could laugh freely, cry honestly, and connect with people in a way that felt real instead of curated. It was also a practical reminder that inner clown energy is not just about theatre — it is a way of being more expressive, more spontaneous, and more connected to your body and your instincts. I left with a full heart, a tired voice, and a strong sense that I had touched something important in myself.”</p>
-                </div>
-              </details>
-
-              <details class="review-card">
-                <summary>
-                  <strong>From Alex</strong>
-                  <p class="review-preview">“I understood that making mistakes is a way to feel alive. That alone changed how I relate to myself.”</p>
-                  <p class="review-preview more">Read more</p>
-                </summary>
-                <div class="review-full">
-                  <p>“I spent years being careful, guarded, and afraid of being judged. I’m used to performing in a polished way, even when it feels fake. Pedro’s workshop was the first time I felt the opposite: that risk can be playful, that being imperfect is not a threat but a doorway, and that real life is often more alive in those vulnerable moments. I laughed until my stomach hurt, and I also saw parts of myself that I usually keep hidden. It changed my relationship with fear. It reminded me that freedom begins when you stop taking yourself so seriously.”</p>
-                </div>
-              </details>
-            </div>
-          </div>
-        </section>
-
         <section class="section" id="media">
           <div class="section-inner">
             <p class="section-kicker">Workshop moments</p>
@@ -1221,20 +1494,203 @@
           </div>
         </section>
 
+        <section class="section" id="reviews">
+          <div class="section-inner">
+            <p class="section-kicker">Reviews</p>
+            <h2>People leave changed, lighter, more awake</h2>
+
+            <div class="review-grid">
+              <details class="review-card">
+                <summary>
+                  <strong>From Dasha</strong>
+                  <p class="review-preview">“It wasn’t about being funny. It was about letting go of control and discovering what is real, raw and alive inside.”</p>
+                  <p class="review-preview more">Read more</p>
+                </summary>
+                <div class="review-full">
+                  <p>“I went in with a strong fear of being seen and feeling awkward. I expected a performance exercise. Instead, I discovered something much deeper: there are moments when surrendering control creates honesty, brightness and a huge emotional release. The workshop helped me understand that my energy was being spent on trying to appear more polished, not on being fully alive. By the end, I felt as if old blocks had been cleared, and I understood that my real power is not in being careful — it is in allowing myself to be present, messy, expressive and honest.”</p>
+                </div>
+              </details>
+
+              <details class="review-card">
+                <summary>
+                  <strong>From Sasha</strong>
+                  <p class="review-preview">“For me it became a deep reset: warm, playful, emotional, and surprisingly transformative.”</p>
+                  <p class="review-preview more">Read more</p>
+                </summary>
+                <div class="review-full">
+                  <p>“The workshop was a rare combination of ease and intensity. It gave me permission to feel more authentic and less guarded. The atmosphere was so warm and open that I could laugh freely, cry honestly, and connect with people in a way that felt real instead of curated. It was also a practical reminder that inner clown energy is not just about theatre — it is a way of being more expressive, more spontaneous, and more connected to your body and your instincts. I left with a full heart, a tired voice, and a strong sense that I had touched something important in myself.”</p>
+                </div>
+              </details>
+
+              <details class="review-card">
+                <summary>
+                  <strong>From Alex</strong>
+                  <p class="review-preview">“I understood that making mistakes is a way to feel alive. That alone changed how I relate to myself.”</p>
+                  <p class="review-preview more">Read more</p>
+                </summary>
+                <div class="review-full">
+                  <p>“I spent years being careful, guarded, and afraid of being judged. I’m used to performing in a polished way, even when it feels fake. Pedro’s workshop was the first time I felt the opposite: that risk can be playful, that being imperfect is not a threat but a doorway, and that real life is often more alive in those vulnerable moments. I laughed until my stomach hurt, and I also saw parts of myself that I usually keep hidden. It changed my relationship with fear. It reminded me that freedom begins when you stop taking yourself so seriously.”</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
         <section class="section" id="bio">
           <div class="section-inner">
-            <p class="section-kicker">About Pedro</p>
-            <h2>Bridging clowning, embodiment, and personal growth</h2>
+            <p class="section-kicker">Meet Pedro</p>
+            <h2>A clown and a psychologist</h2>
 
             <div class="about-layout">
-              <div class="bio-box">
-                <p>Pedro Fabião is a performing clown, internationally acclaimed trainer, consultant and creative agent. He works at the intersection of clowning, physical theatre, play science and personal development, bringing both artistic depth and practical insight into work with individuals and organisations. His approach is playful, embodied and radically human.</p>
+              <div class="bio-copy">
+                <p>Pedro Fabião has spent years training hospital clowns and actors around the world - hospital clowning being a profession that runs almost entirely on sensitivity and empathy. For years he directed <em>Operação Nariz Vermelho</em>, Portugal's hospital clown organisation.</p>
+                <p>He is also a psychologist, trained in psychodrama. The two halves aren't kept in separate rooms. The work is helping people find and express what's actually in them, and go gently through whatever is in the way.</p>
+                <p>His approach is playful, embodied and based on humour. Which doesn't keep difficult emotions away - and when they arrive, the work is finding what lets you say yes to the experience, so that something can move.</p>
+
+                <p class="bio-pull">Hospital clowning is a profession that runs almost entirely on <span>sensitivity and empathy</span>.</p>
               </div>
 
-              <div class="about-photo">
+              <figure class="about-photo">
                 <img src="kseniia_fadeeva-1950_2.jpg" alt="Portrait of Pedro Fabião" />
+                <figcaption>Pedro Fabião, Lisbon</figcaption>
+              </figure>
+            </div>
+
+            <div class="bio-teaching">
+              <p class="section-kicker">How Pedro teaches</p>
+
+              <div class="bio-principles">
+                <div class="bio-principle">
+                  <div class="rule"></div>
+                  <h3>Welcoming mistakes</h3>
+                  <p>Transformation, growth and learning require accepting mistakes. We work with whatever each participant already does with theirs, so you can risk more.</p>
+                </div>
+
+                <div class="bio-principle">
+                  <div class="rule"></div>
+                  <h3>Authenticity and resources</h3>
+                  <p>Practices rooted in a real impulse, respecting your boundaries, following your own sensitivity - learning to stay safe in bigger challenges by distinguishing safety from comfort.</p>
+                </div>
+
+                <div class="bio-principle">
+                  <div class="rule"></div>
+                  <h3>Playfulness and fun</h3>
+                  <p>Play opens us to transformation by lowering our defences and increasing trust. It also builds one remarkable skill: not taking ourselves so seriously.</p>
+                </div>
+              </div>
+
+              <p class="bio-creds">He teaches in more than 25 countries and has worked with Google, McKinsey, Columbia Business School EMBA, Skolkovo, NetJets, Red Nose International and The Humour Foundation, among others. He is a member of the Artistic Council of the Theodora Foundation.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="practical">
+          <div class="section-inner">
+            <h2 class="practical-title">Practical Information</h2>
+
+            <dl class="practical__grid">
+              <div class="practical__item">
+                <dt class="practical__label">Dates</dt>
+                <dd class="practical__value">15–16 October</dd>
+              </div>
+
+              <div class="practical__item">
+                <dt class="practical__label">Hours</dt>
+                <dd class="practical__value">10:00–18:00, both days</dd>
+                <dd class="practical__note">Keep the evening free until 19:00 — we sometimes run over.</dd>
+              </div>
+
+              <div class="practical__item">
+                <dt class="practical__label">Where</dt>
+                <dd class="practical__value">Lisbon</dd>
+                <dd class="practical__note">Venue shared once you've booked.</dd>
+              </div>
+
+              <div class="practical__item">
+                <dt class="practical__label">Language</dt>
+                <dd class="practical__value">English</dd>
+              </div>
+
+              <div class="practical__item">
+                <dt class="practical__label">Group size</dt>
+                <dd class="practical__value">16 people maximum</dd>
+              </div>
+
+              <div class="practical__item">
+                <dt class="practical__label">Age</dt>
+                <dd class="practical__value">20+</dd>
+                <dd class="practical__note">From 18 by exception — just ask.</dd>
+              </div>
+
+              <div class="practical__item">
+                <dt class="practical__label">Price</dt>
+                <dd class="practical__value">€190 until 15 September</dd>
+                <dd class="practical__note">€220 from 16 September</dd>
+              </div>
+
+              <div class="practical__item">
+                <dt class="practical__label">Booking</dt>
+                <dd class="practical__value"><a href="https://wa.me/351937990470" target="_blank" rel="noopener noreferrer">Via WhatsApp</a></dd>
+                <dd class="practical__note">Your place is confirmed on payment.</dd>
+              </div>
+            </dl>
+
+            <div class="faq">
+              <h3>Questions</h3>
+
+              <details>
+                <summary>Do I need experience in acting or clowning?</summary>
+                <p class="faq-answer">No. Most people arrive with none.</p>
+              </details>
+
+              <details>
+                <summary>Do I need to be funny?</summary>
+                <p class="faq-answer">No. Humour is not something you have to produce here - it often appears when things do not go as planned.</p>
+              </details>
+
+              <details>
+                <summary>Do I have to attend both days?</summary>
+                <p class="faq-answer">Yes. The workshop is one continuous two-day process. The second day builds on what happens during the first, and the consistency of the group helps create a safe working space.</p>
+              </details>
+
+              <details>
+                <summary>What should I bring?</summary>
+                <p class="faq-answer">Comfortable clothes you can move in, indoor shoes or bare feet depending on the venue, water, and something for the breaks.</p>
+              </details>
+
+              <details>
+                <summary>What happens at lunch?</summary>
+                <p class="faq-answer">There is a one-hour break in the middle of each day. You can bring food or visit one of the nearby cafés.</p>
+              </details>
+
+              <details>
+                <summary>What if I need to cancel?</summary>
+                <p class="faq-answer">Up to and including 15 September, you can have a full refund or move your payment to a future workshop. From 16 September, if we manage to fill your place, half the fee is refunded or transferred. If the place stays empty, we can't refund it - with a group of sixteen, a place that opens late usually stays open.</p>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="pricing">
+          <div class="section-inner">
+            <p class="section-kicker">Workshop fee</p>
+            <h2>Choose your rate</h2>
+
+            <div class="pricing-grid">
+              <div class="price-card early">
+                <span class="price-label">Early bird</span>
+                <strong class="price-amount">€190</strong>
+                <p>Available until 15 September</p>
+              </div>
+
+              <div class="price-card">
+                <span class="price-label">Regular</span>
+                <strong class="price-amount">€220</strong>
+                <p>From 16 September</p>
               </div>
             </div>
+
+            <p class="pricing-note">Places are limited. Your booking is confirmed once payment has been received.</p>
           </div>
         </section>
 
